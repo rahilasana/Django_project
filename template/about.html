@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+About | Little Stars
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="about">
+
+    <div class="about-image">
+        <img
+            src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80"
+            alt="Kids clothing">
+    </div>
+
+    <div class="about-text">
+
+        <p class="label">ABOUT US</p>
+
+        <h1>Clothes Made For Happy Childhoods</h1>
+
+        <p>
+            Little Stars is a small kids clothing store focused
+            on comfortable, colorful and affordable clothing.
+        </p>
+
+        <p>
+            We believe children should be able to play,
+            learn and explore comfortably while looking stylish.
+        </p>
+
+        <div class="features">
+            <div>
+                <strong>✓</strong>
+                Comfortable Materials
+            </div>
+
+            <div>
+                <strong>✓</strong>
+                Affordable Prices
+            </div>
+
+            <div>
+                <strong>✓</strong>
+                Kids Friendly Designs
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -21,20 +21,24 @@ from django_firstproject import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about-us/',views.about_us),
-    path('courses/',views.courses),
+    # path('about-us/',views.about_us),
+    # path('courses/',views.courses),
     # """dynamic routing"""
     
     # path('courses/<int:courseid>',views.courseDetail),
     
     # path('courses/<str:courseid>',views.courseDetail),
     
-    path('courses/<slug:courseid>',views.courseDetail),
+    # path('courses/<slug:courseid>',views.courseDetail),
     
     # """if u have ni idea about type then not use any type"""
     
     # path('courses/<courseid>',views.courseDetail),
-    path('',views.home),
+    path('',views.home,name="home"),
+    path('about/',views.about,name="about"),
+    path('contact/',views.contact,name="contact"),
+    path('products/',views.products,name="products"),
+    
     
 ]
 

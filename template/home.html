@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home | Little Stars
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+        <p class="small-title">WELCOME TO LITTLE STARS</p>
+
+        <h1>
+            Cute Clothes<br>
+            For Little Stars
+        </h1>
+
+        <p>
+            Discover comfortable, colorful and stylish
+            clothes made especially for kids.
+        </p>
+
+        <a href="/products/" class="btn">
+            Shop Collection
+        </a>
+    </div>
+
+    <div class="hero-image">
+        <img
+            src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80"
+            alt="Happy child">
+    </div>
+
+</section>
+
+
+<section class="categories">
+
+    <h2>Shop By Category</h2>
+
+    <div class="category-container">
+
+        <div class="category">
+            <h3>👕 Boys</h3>
+            <p>Comfortable outfits for boys.</p>
+        </div>
+
+        <div class="category">
+            <h3>👗 Girls</h3>
+            <p>Beautiful dresses for girls.</p>
+        </div>
+
+        <div class="category">
+            <h3>🧸 Baby</h3>
+            <p>Soft clothes for little babies.</p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+.about {
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-image img {
+    width: 450px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.about-text {
+    max-width: 550px;
+}
+
+.label {
+    color: #ff6b81;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-text h1 {
+    font-size: 42px;
+    margin: 15px 0 25px;
+    color: #292d3e;
+}
+
+.about-text > p:not(.label) {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.features {
+    margin-top: 25px;
+}
+
+.features div {
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.features strong {
+    color: #6c63ff;
+    margin-right: 10px;
+}

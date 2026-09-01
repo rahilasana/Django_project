@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Products | Little Stars
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="products-section">
+
+    <h1>Kids Collection</h1>
+
+    <p class="subtitle">
+        Explore our latest collection for little ones.
+    </p>
+
+
+    <div class="products-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <img src="{{ product.image }}" alt="{{ product.name }}">
+
+            <div class="product-info">
+
+                <span class="category">
+                    {{ product.category }}
+                </span>
+
+                <h3>{{ product.name }}</h3>
+
+                <p>{{ product.description }}</p>
+
+                <div class="bottom">
+                    <strong>${{ product.price }}</strong>
+
+                    <button>
+                        Add to Cart
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No products available.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
