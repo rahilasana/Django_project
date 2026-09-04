@@ -1,43 +1,52 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{% block title %}Little Stars{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
     {% block css %}{% endblock %}
-</head>
+  </head>
+   <style>
+    .nav-links .active a {
+    background-color: blue;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+}
+   </style>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <div class="logo">
-            Little<span>Stars</span>
-        </div>
+      <div class="logo">Little<span>Stars</span></div>
+      <ul class="nav-links">
+        <li class="{% if request.path == '/' %}active{% endif %}">
+          <a href="/">Home</a>
+        </li>
 
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="{% url 'products' %}">Products</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
+        <li class="{% if request.path == '/products/' %}active{% endif %}">
+          <a href="{% url 'products' %}">Products</a>
+        </li>
+
+        <li class="{% if request.path == '/about/' %}active{% endif %}">
+          <a href="{% url 'about' %}">About</a>
+        </li>
+
+        <li class="{% if request.path == '/contact/' %}active{% endif %}">
+          <a href="{% url 'contact' %}">Contact</a>
+        </li>
+      </ul>
     </nav>
 
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
+    <main>{% block content %} {% endblock %}</main>
 
     <footer>
-        <p>© 2026 Little Stars Kids Clothing</p>
+      <p>© 2026 Little Stars Kids Clothing</p>
     </footer>
-
-</body>
+  </body>
 </html>
