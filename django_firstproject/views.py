@@ -52,7 +52,33 @@ def products(request):
     return render(request, "products.html", {
         "products": products
     })
+    
+def userform(request):
+    # try:
+    #     n1=int(request.GET['val1'])
+    #     n2=int(request.GET['val2'])
+    #     print(n1+n2)
+    # except:
+    #     pass
+    
+    result=0
+    """using GET method"""
+    # if request.GET:
+       
+    #     n1 = int(request.GET.get('val1'))
+    #     n2 = int(request.GET.get('val2'))
 
+    #     result=n1 + n2
+    # return render(request, "userform.html",{'output':result})
+    
+    """using post method"""
+    if request.method== "POST":
+       
+        n1 = int(request.POST.get('val1'))
+        n2 = int(request.POST.get('val2'))
+
+        result=n1 + n2
+    return render(request, "userform.html",{'output':result})
 
 
 # def about_us(request):

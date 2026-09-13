@@ -38,6 +38,7 @@ urlpatterns = [
     path('about/',views.about,name="about"),
     path('contact/',views.contact,name="contact"),
     path('products/',views.products,name="products"),
+    path('userform/',views.userform,name="userform"),
     
     
 ]
