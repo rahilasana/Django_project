@@ -23,6 +23,9 @@ def about(request):
 def contact(request):
     return render(request, "contact.html")
 
+def categories(request):
+    return render(request, "categories.html")
+
 def products(request):
 
     products = [

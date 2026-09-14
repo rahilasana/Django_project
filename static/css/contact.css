@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 70px;
+    background-color: #c7b6b6;
 }
 
 .label {

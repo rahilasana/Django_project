@@ -12,14 +12,14 @@
 
     {% block css %}{% endblock %}
   </head>
-   <style>
+  <style>
     .nav-links .active a {
-    background-color: blue;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-}
-   </style>
+      background-color: blue;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+    }
+  </style>
 
   <body>
     <nav class="navbar">
@@ -36,8 +36,10 @@
         <li class="{% if request.path == '/about/' %}active{% endif %}">
           <a href="{% url 'about' %}">About</a>
         </li>
-
-        <li class="{% if request.path == '/contact/' %}active{% endif %}">
+        <li class="{% if request.path == '/categories/' %}active{% endif %}">
+          <a href="{% url 'categories' %}">Categories</a>
+        </li>
+                <li class="{% if request.path == '/contact/' %}active{% endif %}">
           <a href="{% url 'contact' %}">Contact</a>
         </li>
       </ul>

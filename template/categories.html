@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title %}
+About | Little Stars
+{% endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/categories.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="categories-section">
+
+    <div class="categories-container">
+
+        <div class="categories-heading">
+            <span>Explore Little Stars</span>
+            <h2>Shop Our Categories</h2>
+            <p>
+                Discover our collection of carefully selected products
+                made especially for little ones.
+            </p>
+        </div>
+
+        <div class="categories-grid">
+
+            <div class="category-card">
+                <div class="category-icon">🧸</div>
+                <h3>Toys</h3>
+                <p>Fun and creative toys for kids.</p>
+                <a href="/products/">Shop Now</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">👕</div>
+                <h3>Kids Clothing</h3>
+                <p>Comfortable and stylish clothes for little stars.</p>
+                <a href="/products/">Shop Now</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🎒</div>
+                <h3>School Accessories</h3>
+                <p>Useful and colorful items for school.</p>
+                <a href="/products/">Shop Now</a>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🎁</div>
+                <h3>Gifts</h3>
+                <p>Special gifts for every little celebration.</p>
+                <a href="/products/">Shop Now</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}
+
+
+
