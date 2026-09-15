@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 #it was for index.html
 # def home(request):
@@ -24,7 +24,9 @@ def contact(request):
     return render(request, "contact.html")
 
 def categories(request):
-    return render(request, "categories.html")
+    if request.method=="GET":
+        result=request.GET.get('output')#q k url ma output name se a rhi hai value
+    return render(request, "categories.html",{'result':result})
 
 def products(request):
 
@@ -57,6 +59,8 @@ def products(request):
     })
     
 def userform(request):
+    
+   
     # try:
     #     n1=int(request.GET['val1'])
     #     n2=int(request.GET['val2'])
@@ -81,6 +85,11 @@ def userform(request):
         n2 = int(request.POST.get('val2'))
 
         result=n1 + n2
+        "how we can redirect + show any value in url using .format() the value of result will be in output"
+        
+        url=('/categories/?output={}'.format(result))
+        return HttpResponseRedirect(url)
+    
     return render(request, "userform.html",{'output':result})
 
 
