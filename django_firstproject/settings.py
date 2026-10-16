@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce', 
+    'news',
 ]
 # MIDDLEWARE security k liye use hoti hai
 MIDDLEWARE = [

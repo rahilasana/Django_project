@@ -4,9 +4,11 @@ Stars {% endblock %} {% block css %}
 {% endblock %} {% block content %}
 <section class="user-form-section">
   {% comment %} <form class="user-form" method="GET"> {% endcomment %}
-     <form class="user-form" method="POST">
+     <form class="user-form" method="POST" action="/transfer/">
         {% csrf_token %}
+  
     <h2>User Form</h2>
+  
 
     {% comment %}
     <div class="form-group">
@@ -65,20 +67,20 @@ Stars {% endblock %} {% block css %}
     </div>
     {% endcomment %}
 
-    <div class="form-group">
+     <div class="form-group">
       <label for="password">value1</label>
       <input type="int" name="val1" placeholder="Enter your a number" />
     </div>
     <div class="form-group">
       <label for="password">value2</label>
       <input type="int" name="val2" placeholder="Enter your a number" />
-    </div>
+    </div> 
     <div class="form-group">
       <label for="password">result</label>
       <input type="int" value="{{output}}" />
-    </div>
+    </div> 
 
-    <button type="submit">Submit</button>
+    <button type="submit">submit</button>
   </form>
 </section>
 

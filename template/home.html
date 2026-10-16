@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -7,64 +7,52 @@ Home | Little Stars
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home_page.css' %}">
 {% endblock %}
-
 
 {% block content %}
 
-<section class="hero">
+<marquee onmouseover='stop()' onmouseout='start()' class="news-marquee" behavior="scroll" direction="left" scrollamount="5">
+    {% for news in news_data %}
+    {% comment %} field ka name wahi hona chaye jo ap ne model ma rkha hai ok! jaisy yahn tilte  {% endcomment %}
+       <a href="/news_detail/{{news.id}}"> {{ news.title }}<a/> &nbsp; | &nbsp;
+    {% empty %}
+        Welcome to Little Stars!
+    {% endfor %}
+</marquee>
 
-    <div class="hero-text">
-        <p class="small-title">WELCOME TO LITTLE STARS</p>
+<!-- Hero Section -->
+
+<section class="hero-slider">
+
+    <!-- Background Images -->
+    <div class="hero-bg bg-one"></div>
+    <div class="hero-bg bg-two"></div>
+    <div class="hero-bg bg-three"></div>
+
+    <!-- Dark Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Text -->
+    <div class="hero-content">
+        <p class="hero-subtitle">WELCOME TO LITTLE STARS</p>
 
         <h1>
-            Cute Clothes<br>
-            For Little Stars
+            Little Looks,<br>
+            Big Dreams!
         </h1>
 
-        <p>
-            Discover comfortable, colorful and stylish
-            clothes made especially for kids.
+        <p class="hero-description">
+            Discover adorable, comfortable and stylish
+            outfits made especially for your little ones.
         </p>
 
-        <a href="/products/" class="btn">
-            Shop Collection
+        <a href="/products/" class="hero-btn">
+            Explore Collection →
         </a>
     </div>
 
-    <div class="hero-image">
-        <img
-            src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80"
-            alt="Happy child">
-    </div>
-
 </section>
 
-
-<section class="categories">
-
-    <h2>Shop By Category</h2>
-
-    <div class="category-container">
-
-        <div class="category">
-            <h3>👕 Boys</h3>
-            <p>Comfortable outfits for boys.</p>
-        </div>
-
-        <div class="category">
-            <h3>👗 Girls</h3>
-            <p>Beautiful dresses for girls.</p>
-        </div>
-
-        <div class="category">
-            <h3>🧸 baby</h3>
-            <p>Soft clothes for little babies.</p>
-        </div>
-
-    </div>
-
-</section>
 
 {% endblock %}

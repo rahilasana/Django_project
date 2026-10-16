@@ -40,6 +40,9 @@ urlpatterns = [
     path('products/',views.products,name="products"),
     path('userform/',views.userform,name="userform"),
     path('categories/',views.categories,name="categories"),
+    path('transfer/',views.transfer,name="transfer"),
+    path('register/',views.register,name="register"),
+    path('news_detail/<newsid>',views.news_detail,name="news_detail"),
     
     
 ]

@@ -1,0 +1,125 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+{{ news.title }} | Little Stars
+{% endblock %}
+
+{% block css %}
+<style>
+    .news-detail-page {
+        min-height: 75vh;
+        padding: 70px 20px;
+        background: #fff7f9;
+    }
+
+    .news-card {
+        max-width: 850px;
+        margin: auto;
+        padding: 45px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 35px rgba(40, 20, 30, 0.08);
+        border: 1px solid #ffe1e9;
+    }
+
+    .news-label {
+        display: inline-block;
+        padding: 8px 15px;
+        margin-bottom: 22px;
+        border-radius: 30px;
+        background: #ffe3eb;
+        color: #d94675;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .news-title {
+        margin-bottom: 25px;
+        color: #292d3e;
+        font-size: 38px;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .news-divider {
+        width: 75px;
+        height: 4px;
+        margin-bottom: 28px;
+        background: #e75480;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .news-description {
+        color: #656575;
+        font-size: 17px;
+        line-height: 1.9;
+        overflow-wrap: anywhere;
+        white-space: pre-line;
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 35px;
+        padding: 13px 23px;
+        background: #e75480;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .back-btn:hover {
+        background: #ca3f6b;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+        .news-detail-page {
+            padding: 35px 15px;
+        }
+
+        .news-card {
+            padding: 28px 22px;
+        }
+
+        .news-title {
+            font-size: 28px;
+        }
+
+        .news-description {
+            font-size: 15px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="news-detail-page">
+    <article class="news-card">
+
+        <span class="news-label">LITTLE STARS NEWS</span>
+
+        <h1 class="news-title">
+            {{ newsdetail.title }}
+        </h1>
+
+        <hr class="news-divider">
+
+        <div class="news-description">
+            {% comment %} ye | safe ne tags ko apply kiya wrna tags a rhy thy apply nhi ho rhy thy {% endcomment %}
+            {{ newsdetail.content | safe }}
+        </div>
+
+        <a href="/" class="back-btn">
+            ← Back to Home
+        </a>
+
+    </article>
+</section>
+
+{% endblock %}

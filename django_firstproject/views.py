@@ -1,5 +1,8 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
+from .forms import RegisterForm
+from news.models import News ,Product
+
 #it was for index.html
 # def home(request):
 #     data={
@@ -13,9 +16,25 @@ from django.shortcuts import render
 #         ]
         
 #     }
+
 #     return render(request,"index.html",data)
 def home(request):
-    return render(request,"home.html")
+    #orm command
+    # read operation , objects.all() is used to get all objects
+    news_data=News.objects.all()
+    
+    return render(request,"home.html",{'news_data':news_data})
+
+def news_detail(request,newsid):
+    # here get is used for retreiving a single row
+    newsDetail=News.objects.get(id=newsid)
+    
+    data={
+        'newsdetail':newsDetail
+        
+    }
+    return render(request,'detailed_page.html',data)
+
 
 def about(request):
     return render(request, "about.html")
@@ -28,35 +47,42 @@ def categories(request):
         result=request.GET.get('output')#q k url ma output name se a rhi hai value
     return render(request, "categories.html",{'result':result})
 
+"""  __icontains use hota hai name mein search karne ke liye.
+ Ye capital aur small letters ka farq nahi karta
+ aur name ke kisi bhi part ko match kar leta hai.
+ Example: "baby" search karne par "Baby Frock" bhi mil jayega."""
 def products(request):
+    search = request.GET.get('search', '')
 
-    products = [
-        {
-            "name": "Rainbow T-Shirt",
-            "category": "Boys",
-            "price": 15,
-            "description": "Soft cotton colorful t-shirt.",
-            "image": "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea"
-        },
-        {
-            "name": "Cute Summer Dress",
-            "category": "Girls",
-            "price": 25,
-            "description": "Beautiful and comfortable summer dress.",
-            "image": "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42"
-        },
-        {
-            "name": "Baby Cotton Set",
-            "category": "Baby",
-            "price": 20,
-            "description": "Soft cotton clothing set for babies.",
-            "image": "https://images.unsplash.com/photo-1519689680058-324335c77eba"
-        }
-    ]
+    products = Product.objects.all()
 
+    if search:
+        products = products.filter(name__icontains=search) 
     return render(request, "products.html", {
         "products": products
     })
+
+    
+def register(request):
+
+    if request.method == 'POST':
+
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+    else:
+
+        form = RegisterForm()
+
+    return render(
+        request,
+        'register.html',
+        {'form': form}
+    )
     
 def userform(request):
     
@@ -78,6 +104,8 @@ def userform(request):
     #     result=n1 + n2
     # return render(request, "userform.html",{'output':result})
     
+
+    
     """using post method"""
     if request.method== "POST":
        
@@ -85,6 +113,7 @@ def userform(request):
         n2 = int(request.POST.get('val2'))
 
         result=n1 + n2
+    
         "how we can redirect + show any value in url using .format() the value of result will be in output"
         
         url=('/categories/?output={}'.format(result))
@@ -102,3 +131,6 @@ def userform(request):
 
 # def courseDetail(request,courseid):
 #     return HttpResponse(f"this is my {courseid} course ")
+
+def transfer(request):
+    return HttpResponse(request)

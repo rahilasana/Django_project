@@ -1,0 +1,153 @@
+
+/* Full Screen Hero Slider */
+.hero-slider {
+    position: relative;
+    min-height: 650px;
+    height: 85vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    background: #292d3e;
+}
+
+/* Background Images */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: imageSlider 18s infinite;
+    transform: scale(1);
+}
+
+.bg-one {
+    background-image: url("https://images.unsplash.com/photo-1760287363879-6012adab292c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D");
+    animation-delay: 0s;
+}
+
+.bg-two {
+    background-image: url("https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=1800&q=85");
+    animation-delay: 6s;
+}
+
+.bg-three {
+    background-image: url("https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?auto=format&fit=crop&w=1800&q=85");
+    animation-delay: 12s;
+}
+
+/* Overlay: Text ko readable banane ke liye */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(20, 18, 30, 0.72) 0%,
+        rgba(20, 18, 30, 0.45) 48%,
+        rgba(20, 18, 30, 0.12) 100%
+    );
+    z-index: 1;
+}
+
+/* Text Content */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    color: white;
+}
+
+.hero-subtitle {
+    color: #ffc4d5;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.1;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.hero-description {
+    max-width: 520px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f5f1f4;
+    margin-bottom: 32px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 15px 28px;
+    background: #f36b91;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #d94c76;
+    transform: translateY(-3px);
+}
+
+/* Automatic Image Change */
+@keyframes imageSlider {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    28% {
+        opacity: 1;
+        transform: scale(1.06);
+    }
+
+    33% {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Little Stars News Marquee */
+.news-marquee {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 0;
+    /* ye areeba se smjhna hai */
+    background: linear-gradient(
+        90deg,
+        #e75480,
+        #f58ca9,
+        #e75480
+    );
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-top: 2px solid #ffc4d5;
+    border-bottom: 2px solid #ffc4d5;
+    box-shadow: 0 4px 12px rgba(231, 84, 128, 0.15);
+}
+
+/* Text spacing */
+.news-marquee a {
+    color: #ffffff;
+    text-decoration: none;
+}

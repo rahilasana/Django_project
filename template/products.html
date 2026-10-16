@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -7,20 +7,32 @@ Products | Little Stars
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<link rel="stylesheet" href="{% static 'css/prod.css' %}">
 {% endblock %}
-
 
 {% block content %}
 
 <section class="products-section">
 
-    <h1>Kids Collection</h1>
+    <div class="products-header">
+        <div>
+            <h1>Kids Collection</h1>
+            <p class="subtitle">
+                Explore our latest collection for little ones.
+            </p>
+        </div>
 
-    <p class="subtitle">
-        Explore our latest collection for little ones.
-    </p>
+        <form method="GET" action="" class="search-form">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search products..."
+                value="{{ request.GET.search }}"
+            >
 
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
     <div class="products-grid">
 
@@ -28,7 +40,10 @@ Products | Little Stars
 
         <div class="product-card">
 
-            <img src="{{ product.image }}" alt="{{ product.name }}">
+            <img
+                src="{{ product.image }}"
+                alt="{{ product.name }}"
+            >
 
             <div class="product-info">
 
@@ -43,7 +58,7 @@ Products | Little Stars
                 <div class="bottom">
                     <strong>${{ product.price }}</strong>
 
-                    <button>
+                    <button type="button">
                         Add to Cart
                     </button>
                 </div>
@@ -51,10 +66,12 @@ Products | Little Stars
             </div>
 
         </div>
-
+{% comment %} 'emplty' plays 'else' role in django templates {% endcomment %}
         {% empty %}
 
-        <p>No products available.</p>
+        <p class="no-products">
+            No products found. Try another search.
+        </p>
 
         {% endfor %}
 
